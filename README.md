@@ -1,2 +1,3 @@
-# cat
-A cat repo
+# Hello Cat!
+
+This is a github repository for cats.
