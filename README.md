@@ -2,6 +2,19 @@
 
 This is a github repository for cats.
 
+## Basic Git commands
+
+1. `git clone <URL>`: Clones remote repository into local drive
+2. `git pull`: Fetches the latest from remote repository
+3. `git status`: Shows current status
+4. `git diff`: Shows how **unstaged** files are changed
+5. `git add <directory or file>`: Stages file for commit
+6. `git commit`: Prepares commit from staged files
+7. `git push`: Pushes the commit
+8. `git rm`: Remove the file (needs commit and push)
+
+### Branching......... 나중에....
+
 ## Install Instructions (for Windows)
 
 1. Install Python 3: www.python.org
