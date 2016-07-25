@@ -1,5 +1,7 @@
+#-*-coding:utf-8-*-
 import time
 import urllib.request
+import re
 from bs4 import BeautifulSoup
 
 from flask import Flask, render_template, request
@@ -18,12 +20,15 @@ def get_remote_url():
     data = response.read()      # a `bytes` object
     text = data.decode('utf-8') # a `str`; this step can't be used if data is binary
 
-    soup = BeautifulSoup(text)
-    wordpress_content = soup.find('div', {'id': 'content'})
+    soup = BeautifulSoup(text,"html.parser")
+    wordpress_content = soup.find('body')
+
+    pattern = '사드는 국가안위와 오천만 국민의 생명이 직결되는 중요한 안보문제 임에도 불구하고 작금의 대한민국은 한미 사드배치 결정에 따라 근거없는 괴담으로 인해 온 나라가 몸살을 앓고 있다.'
+    match = re.findall(pattern, wordpress_content.text)
 
     file = {
         'size': len(text),
-        'content': text,
+        'content': match,
         'header': response.info(),
         'textonly': wordpress_content.text
     }
